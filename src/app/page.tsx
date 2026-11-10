@@ -125,12 +125,36 @@ const MENU: Item[] = [
     image: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=900&q=80",
   },
   {
+    id: "p3",
+    cat: "pizza",
+    name: "Special Crown Crust Pizza",
+    desc: "Chicken, kebab bites, peppers and olives on a stuffed crown crust.",
+    price: 1450,
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  }, 
+  {
     id: "b1",
     cat: "burger",
     name: "Spicy Zinger Burger",
     desc: "Crispy zinger fillet, lettuce, pickles and chilli sauce.",
     price: 290,
     image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    id: "b4",
+    cat: "burger",
+    name: "Spicy Zinger Burger",
+    desc: "Crispy zinger fillet, lettuce, pickles and chilli sauce.",
+    price: 290,
+    image: "https://images.unsplash.com/photo-1767065703549-000399981385?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
+  },
+  {
+    id: "b14",
+    cat: "burger",
+    name: "Spicy Zinger Burger",
+    desc: "Crispy zinger fillet, lettuce, pickles and chilli sauce.",
+    price: 290,
+    image: "https://images.unsplash.com/photo-1549611016-3a70d82b5040?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D",
   },
   {
     id: "d1",
@@ -569,21 +593,9 @@ export default function Home() {
         <section className="bg-stone-900/40 py-16">
           <div className={wrap}>
             <SectionHead id="burgers" kicker="Burgers" title="Zingers & burgers" blurb="Crispy, stacked and served hot." />
-            <div className=" ">
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {burgers.map((it, i) => (
-                <Reveal key={it.id} delay={i * 80}>
-                  <div className="flex overflow-hidden rounded-3xl border border-stone-800 bg-stone-950 flex-col max-w-[300px] mx-auto  ">
-                    <img src={it.image} alt={it.name} loading="lazy" className="h-auto  object-cover" />
-                    <div className="flex flex-1 flex-col p-5 z-30">
-                      <h3 className="text-lg font-bold">{it.name}</h3>
-                      <p className="mt-1.5 flex-1 text-sm leading-6 text-stone-400">{it.desc}</p>
-                      <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
-                        <span className="text-xl font-black text-amber-300">{rs(it.price)}</span>
-                        <Stepper qty={cart[it.id] ?? 0} onAdd={() => add(it.id)} onDec={() => dec(it.id)} />
-                      </div>
-                    </div>
-                  </div>
-                </Reveal>
+                 <Card key={it.id} delay={i * 80} item={it} qty={cart[it.id] ?? 0} onAdd={() => add(it.id)} onDec={() => dec(it.id)}   />
               ))}
             </div>
           </div>
