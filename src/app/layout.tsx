@@ -3,10 +3,11 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 
 const geist = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
+// i want to add favicon
 
 export const metadata: Metadata = {
   title: "Burgizza | Burgers & Pizzas",
-  description: "Fresh burgers and loaded pizzas, delivered hot in Multan.",
+  description: "Fresh burgers and loaded pizzas, delivered hot in Multan.", 
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
